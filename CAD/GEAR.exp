@@ -1,0 +1,16 @@
+[degrees]alpha=20 //Reference Pressure Angle
+c=sqrt(1/(cos(alpha))^2-1)/pi() //Parameter of Involute Curve
+[mm]m=3.5 //Module
+[degrees]phi=arctan(yc/zc)+90/z //Rotation angle
+[mm]r=m*z/2 //Reference Radius
+[mm]ra=r+m //Tip Radius
+[mm]rb=r*cos(alpha) //Base Radius
+[mm]rc=m*.38 //Tooth Blend Radius
+[mm]rf=if(m>1.25)(r-1.25*m)else(r-1.4*m) //Root Radius
+t=0 //NX Parameter
+[mm]xt=0 //x Coordinates of Involute
+yc=rb*(sin(deg(c*pi()))-cos(deg(c*pi()))*c*pi())
+yt=rb*(sin(deg(t*pi()))-cos(deg(t*pi()))*t*pi()) //y Coordinates of Involute
+(Integer) z=25 //Number of Teeth
+zc=rb*(cos(deg(c*pi()))+sin(deg(c*pi()))*c*pi())
+zt=rb*(cos(deg(t*pi()))+sin(deg(t*pi()))*t*pi()) //z Coordinates of Involute
