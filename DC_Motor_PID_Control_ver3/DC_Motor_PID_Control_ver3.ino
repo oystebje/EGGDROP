@@ -39,15 +39,15 @@ void setup() {
   pinMode(IN1, OUTPUT);
   pinMode(IN2, OUTPUT);
 
-  Serial.println("target pos");
+    Serial.println("Target pos, Encoder pos");
 }
 
 //************************************************
 
 void loop() {
 
-  // Set target position (2048 * X rounds)
-  int targ = 2048*5;
+  // Set target position (1024 * X rounds) NB! Check encoder dipswitch for resolution (standard is 2048 for AMT 102V).
+  int targ = 1024*5;
 
   //PID constants
   float kp = 1.0;
@@ -65,7 +65,7 @@ void loop() {
   }
 
   //Error calculation
-  int e = pos - targ;
+  int e = (pos- targ);
 
   //PID Calculation
   float dedt = (e-eprev)/(deltaT);  //Derivative
@@ -74,8 +74,8 @@ void loop() {
 
   //Motor power
   float pwr = fabs(u);  //fabs == floating point, absolute value
-    if(pwr > 70){
-      pwr = 70; //Capping
+    if(pwr > 255){
+      pwr = 255; //Capping
     }
 
   //Motor direction
@@ -90,11 +90,15 @@ void loop() {
   //Store previous error
   eprev = e;
 
-//  Serial.print(targ);
-//  Serial.print(" ");
-  Serial.println(pos);
+  Serial.print(targ);
+  Serial.print(" ");
+  Serial.print(pos);
+  Serial.println(" ");
+//  Serial.print(e);
 //  Serial.print(" ");
 //  Serial.print(u);
+//  Serial.print(" ");
+//  Serial.print(dir);
 //  Serial.print(" ");
 //  Serial.println(pwr);
   
