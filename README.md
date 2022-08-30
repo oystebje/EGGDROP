@@ -10,6 +10,7 @@ You can break as many eggs as you like while training.
 You have three attempts in the competition.
 
 SETUP:
+
 ![image](https://user-images.githubusercontent.com/78421762/131328160-02fde334-3e22-4bac-aa96-b582d948aa07.png)
 
 
@@ -22,5 +23,5 @@ The task is to estimate system parameters for a DC motor using an Arduino Uno mi
 5) Present findings in final presentation, and compete in egg drop challenge!
 
 Model structure:
-![image](https://user-images.githubusercontent.com/78421762/131328330-9ccfa4dd-d106-41eb-814d-829ebb1dd030.png)
 
+![sisID](https://user-images.githubusercontent.com/78421762/186128136-da18a0d2-cd17-4c4b-813f-32da16243a2e.PNG)
